@@ -1,0 +1,49 @@
+#mynav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#cartheader {
+  position: sticky;
+  top: 54px;
+  width: 100%;
+  z-index: 100;
+  background-color: #0003;
+}
+
+.card img {
+  height: 230px;
+  padding: 10px;
+  object-fit: contain;
+}
+
+.card-title {
+  height: 50px;
+  max-height: 50px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 700;
+  font-variant: small-caps;
+  color: #505d7d !important;
+  margin-bottom: 0 !important;
+}
+
+.card-text {
+  height: 80px;
+  max-height: 80px;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 0;
+  color: #7d7d7e !important;
+  text-align: justify;
+}
+
+.user-info {
+  /* border: 1px solid #000; */
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 300px !important;
+}
