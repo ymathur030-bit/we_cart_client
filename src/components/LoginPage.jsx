@@ -26,7 +26,7 @@ function LoginPage() {
 
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:1300/api/login', formData);
+     const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, formData);
       const { token, user, message } = response.data;
 
       if (!token) {
@@ -40,8 +40,9 @@ function LoginPage() {
 
       // Fetch user details if login response does not contain user data
       if (!loggedInUser) {
-        const userResponse = await axios.get('http://localhost:1300/api/user', { headers: { Authorization: `Bearer ${token}` } }
-        );
+       const userResponse = await axios.get(`${import.meta.env.VITE_API_URL}/user`, {
+  headers: { Authorization: `Bearer ${token}` }
+});
         loggedInUser = userResponse.data.user;
       }
 

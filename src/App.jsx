@@ -16,6 +16,9 @@ function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // Netlify environment variable se API base URL milega
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const token = localStorage.getItem('token');
 
@@ -26,17 +29,26 @@ function App() {
 
     const getUser = async () => {
       try {
-        const res = await axios.get('http://localhost:1300/api/user', { headers: { Authorization: `Bearer ${token}` } });
+        const res = await axios.get(`${API_URL}/user`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
         dispatch(userData(res.data.user));
       } catch (err) {
-        console.log('User authentication failed:', err.response?.data || err.message);
+        console.log(
+          'User authentication failed:',
+          err.response?.data || err.message
+        );
+
         dispatch(logout());
         navigate('/login');
       }
     };
 
     getUser();
-  }, [dispatch, navigate]);
+  }, [dispatch, navigate, API_URL]);
 
   return (
     <>

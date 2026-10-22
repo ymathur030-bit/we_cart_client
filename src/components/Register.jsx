@@ -34,7 +34,7 @@ function Register() {
     const { confirmPassword, terms, ...data } = formData;
 
     try {
-      const response = await axios.post('http://localhost:1300/api/signup', data);
+     const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, data);
       toast.success(response.data.message || 'Registration successful!', {
         duration: 2000,
         style: {
